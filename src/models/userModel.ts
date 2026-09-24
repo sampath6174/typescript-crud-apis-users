@@ -12,8 +12,10 @@ interface UserAttributes {
   updated_at: Date;
 }
 
-interface UserCreationAttributes
-  extends Optional<UserAttributes, "id" | "created_at" | "updated_at"> {}
+interface UserCreationAttributes extends Optional<
+  UserAttributes,
+  "id" | "created_at" | "updated_at"
+  > {}
 
 class User extends Model<UserAttributes, UserCreationAttributes> {}
 
@@ -22,56 +24,56 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
 
     admin_number: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true
+      unique: true,
     },
 
     name: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
     },
 
     email: {
       type: DataTypes.STRING(150),
       allowNull: false,
-      unique: true
+      unique: true,
     },
 
     username: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      unique: true
+      unique: true,
     },
 
     password: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
     },
 
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW
+      defaultValue: DataTypes.NOW,
     },
 
     updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW
-    }
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,
     tableName: "users",
     timestamps: true,
     createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+    updatedAt: "updated_at",
+  },
 );
 
 export default User;

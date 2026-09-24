@@ -7,7 +7,6 @@ export async function up(queryInterface: QueryInterface) {
       autoIncrement: true,
       primaryKey: true
     },
-
     admin_number: {
       type: DataTypes.INTEGER,
       allowNull: false,
